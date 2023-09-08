@@ -1,0 +1,135 @@
+
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6 text-white">
+                        Employee Portel
+                    </div>
+                    <div class="col-6 text-right ">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>sr no</th>
+                            <th>Name</th>
+                            <th>Contact No</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>Action</th>
+                            <th>Delete</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let emp of employeeArray; let sr= index">
+                            <td>{{sr+1}}</td>
+                            <td>{{emp.empName}}</td>
+                            <td>{{emp.empContactNo}}</td>
+                            <td>{{emp.empEmail}}</td>
+                            <td>{{emp.city}}</td>
+                            <td>
+                                <button class="btn btn-success" (click)="onEdit(emp.empId)">Edit </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger" (click)="onDelete(emp.empId)">Delete </button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6  text-white">
+                        New Employee
+                    </div>
+                    <div class="col-6 text-right">
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="col-6">
+                            <label >Name</label>
+                            <input type="text" class="form-control" name="empName" [(ngModel)]="empObj.empName">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Phone No</label>
+                            <input type="text" class="form-control" name="empContactNo" [(ngModel)]="empObj.empContactNo">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Alt Phone no</label>
+                            <input type="text" class="form-control" name="empAltContactNo" [(ngModel)]="empObj.empAltContactNo">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Email</label>
+                            <input type="email" class="form-control" name="empEmail" [(ngModel)]="empObj.empEmail">
+                        </div>
+                        <div class="col-12">
+                            <label for="">Address 1</label>
+                            <textarea name="addressLine1" class="form-control" [(ngModel)]="empObj.addressLine1"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <label for="">Address 2</label>
+                            <textarea name="addressLine2" class="form-control" [(ngModel)]="empObj.addressLine2"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Pincode</label>
+                            <input type="text" maxlength="6" class="form-control" name="pincode" [(ngModel)]="empObj.pincode">
+                        </div>
+                        <div class="col-6">
+                            <label for="">City</label>
+                            <input type="text" class="form-control" name="city" [(ngModel)]="empObj.city">
+                        </div>
+                        <div class="col-6">
+                            <label for="">State</label>
+                            <input type="text" class="form-control" name="state" [(ngModel)]="empObj.state">
+                        </div>
+                        <div class="col-6">
+                            <label for="">BankName</label>
+                            <input type="text" class="form-control" name="bankName" [(ngModel)]="empObj.bankName">
+                        </div>
+                        <div class="col-12">
+                            <label for="">IFSC</label>
+                            <input type="text" class="form-control" name="iFSC" [(ngModel)]="empObj.iFSC">
+                        </div>
+                        <div class="col-12">
+                            <label for="">Account No</label>
+                            <input type="text" class="form-control" name="accountNo" [(ngModel)]="empObj.accountNo">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Branch Name</label>
+                            <input type="text" class="form-control" name="bankBranch" [(ngModel)]="empObj.bankBranch">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Salary</label>
+                            <input type="text" class="form-control" name="salary" [(ngModel)]="empObj.salary">
+                        </div>
+                    </div>
+                    <div class="row pt-3">
+                        <div class="col-6">
+                            <button class="btn btn-secondary " (click)="reset()">Reset</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary" *ngIf="empObj.empId == 0" (click)="onSave()">Add Employee</button>
+                            <button class="btn btn-warning" *ngIf="empObj.empId !== 0" (click)="onUpdate()">Update Employee</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+<p>attendence works!</p>
+
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6 text-white">
+                        Attendance Portel
+                    </div>
+                    <div class="col-6 text-right ">
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>sr no</th>
+                            <th>Name</th>
+                            <th>Contact No</th>
+                            <th>Date</th>
+                            <th>inTime</th>
+                            <th>outTime</th>
+                            <th>isFullDay</th>
+                            <th>Action</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let emp of attendanceArray; let sr= index">
+                            <td>{{sr+1}}</td>
+                            <td>{{emp.empName}}</td>
+                            <td>{{emp.empContactNo}}</td>
+                            <td>{{emp.attendanceDate | date : 'dd-mm-yyyy'}}</td>
+                            <td>{{emp.inTime | date: 'hh:mm a'}}</td>
+                            <td>{{emp.outTime | date: 'hh:mm a'}}</td>
+                            <td>{{emp.isFullDay ? 'Yes':'No'}}</td>
+
+
+                            <td>
+
+                                <button class="btn btn-danger" (click)="onDelete(emp.attendanceId)">Delete </button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6  text-white">
+                        Add Attendance
+                    </div>
+                    <div class="col-6 text-right">
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Select Employee</label>
+                            <select name="employeeId" class="form-control" [(ngModel)]="attendanceObj.employeeId">
+                                <option *ngFor="let empl of employeeArray" [value]="empl.empId">{{empl.empName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Attendance Date</label>
+                            <input type="date" class="form-control" name="attendanceDate"
+                                [(ngModel)]="attendanceObj.attendanceDate">
+                        </div>
+                        <div class="col-6">
+                            <label for="">inTime</label>
+                            <input type="time" class="form-control" name="inTime" [(ngModel)]="attendanceObj.inTime">
+                        </div>
+                        <div class="col-6">
+                            <label for="">outTime</label>
+                            <input type="time" class="form-control" name="outTime" [(ngModel)]="attendanceObj.outTime">
+                        </div>
+
+                        <div class="col-12 mt-3" id="check">
+                           
+                            <input class="form-check-input mx-2" name="isFullDay"  type="checkbox" value="" id="flexCheckDefault" [(ngModel)]="attendanceObj.isFullDay">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Is Full day
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row pt-3">
+                        <div class="col-6">
+                            <button class="btn btn-secondary " (click)="reset()">Reset</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary" *ngIf="attendanceObj.attendanceId == 0"
+                                (click)="onSave()">Add Employee</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

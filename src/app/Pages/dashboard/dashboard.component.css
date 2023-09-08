@@ -1,0 +1,24 @@
+img{
+    height: 500px;
+}
+
+.col
+{
+    background-color: beige;
+    padding: 20px;
+
+}
+.col i{
+    font-size: 80px;
+}
+.col h2{
+    font-size: 25px;
+    margin-top: 20px;
+
+}
+.col:hover
+{
+    background-color: darkorange;
+ color: wheat;
+
+}

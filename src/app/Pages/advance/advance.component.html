@@ -1,0 +1,105 @@
+
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6 text-white">
+                        Advance Portel
+                    </div>
+                    <div class="col-6 text-right ">
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>sr no</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Date</th>
+                            <th>AdvanceAmount</th>
+                            <th>Reason</th>
+                            <th>Action</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                         <tr *ngFor="let emp of advanceArray; let sr= index">
+                            <td>{{sr+1}}</td>
+                            <td>{{emp.empName}}</td>
+                            <td>{{emp.empContactNo}}</td>
+                            <td>{{emp.advanceDate | date : 'dd-mm-yyyy'}}</td>
+                            <td>{{emp.advanceAmount }}</td>
+                            <td>{{emp.reason}}</td>
+
+
+                            <td>
+                                 <button class="btn btn-success mx-3" (click)="onEdit(emp.advanceId)">Edit </button>
+
+                                 <button class="btn btn-danger" (click)="onDelete(emp.advanceId)">Delete </button>
+                            </td> 
+
+                        </tr> 
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6  text-white">
+                        Add Advance
+                    </div>
+                    <div class="col-6 text-right">
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Select Employee</label>
+                            <select name="employeeId" class="form-control" [(ngModel)]="advanceObj.employeeId">
+                                <option *ngFor="let adv of employeeArray" [value]="adv.empId">{{adv.empName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Advance Date</label>
+                            <input type="date" class="form-control" name="AdvanceDate"
+                                [(ngModel)]="advanceObj.advanceDate">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Advance Amount</label>
+                            <input type="Number" class="form-control" name="AdvanceAmount" [(ngModel)]="advanceObj.advanceAmount">
+                        </div>
+                        <div class="col-12">
+                            <label for="">Reason</label>
+                            <textarea type="text" class="form-control" name="reason" [(ngModel)]="advanceObj.reason"></textarea>
+                        </div>
+
+                        
+                    </div>
+                    <div class="row pt-3">
+                        <div class="col-6">
+                             <button class="btn btn-secondary " (click)="reset()">Reset</button> 
+                        </div>
+                         <div class="col-6">
+                            <button class="btn btn-primary" 
+                                (click)="onSave()">Add Advance</button>
+                                
+                        </div> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
