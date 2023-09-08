@@ -43,7 +43,6 @@ export class EmployeeComponent implements OnInit {
     this._empSrv.getEmpById(id).subscribe((res: any) => {
       debugger
       this.empObj = res.data;
-
     })
   }
   onUpdate(){
