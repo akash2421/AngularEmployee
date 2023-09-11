@@ -1,7 +1,6 @@
-<p>attendence works!</p>
 
 <div class="row">
-    <div class="col-8">
+    <div class="col-lg-8 ordera-last ">
         <div class="card">
             <div class="card-header bg-primary">
                 <div class="row">
@@ -14,23 +13,25 @@
                 </div>
             </div>
             <div class="card-body">
+                <div class="table-responsive">
+
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>sr no</th>
-                            <th>Name</th>
-                            <th>Contact No</th>
-                            <th>Date</th>
-                            <th>inTime</th>
-                            <th>outTime</th>
-                            <th>isFullDay</th>
-                            <th>Action</th>
+                            <th scope="col">sr no</th>
+                            <th scope="col">Name</th>
+                            <th scope="col"> Contact No</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">inTime</th>
+                            <th scope="col">outTime</th>
+                            <th scope="col">isFullDay</th>
+                            <th scope="col">Action</th>
 
 
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let emp of attendanceArray; let sr= index">
+                        <tr *ngFor="let emp of attendanceArray; let sr= index" scope="row">
                             <td>{{sr+1}}</td>
                             <td>{{emp.empName}}</td>
                             <td>{{emp.empContactNo}}</td>
@@ -49,10 +50,11 @@
                     </tbody>
 
                 </table>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-lg-4  col-md order-md-first mb-4">
         <div class="card">
             <div class="card-header bg-primary">
                 <div class="row">

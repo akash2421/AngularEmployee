@@ -16,17 +16,17 @@ export class EmployeeComponent implements OnInit {
   }
 
   loadAllEmployee() {
-    debugger
+    //debugger
     this._empSrv.getAllEmployee().subscribe((res: any) => {
-      debugger
+      //debugger
       this.employeeArray = res.data;
     })
   }
 
   onSave() {
-    debugger
+    //debugger
     this._empSrv.createEmployee(this.empObj).subscribe((res: any) => {
-      debugger
+      //debugger
       if (res.result) {
         this.loadAllEmployee()
         alert(res.message)
@@ -39,16 +39,16 @@ export class EmployeeComponent implements OnInit {
     })
   }
   onEdit(id:number) {
-    debugger
+    //debugger
     this._empSrv.getEmpById(id).subscribe((res: any) => {
-      debugger
+      //debugger
       this.empObj = res.data;
     })
   }
   onUpdate(){
-    debugger
+    //debugger
     this._empSrv.updateEmployee(this.empObj).subscribe((res: any) => {
-      debugger
+      //debugger
       if (res.result) {
         this.loadAllEmployee()
         alert(res.message)
@@ -63,9 +63,9 @@ export class EmployeeComponent implements OnInit {
 }
 onDelete(empId:number)
 {
-  debugger
+  //debugger
   this._empSrv.deleteEmpById(empId).subscribe((res: any) => {
-    debugger
+    //debugger
     if (res.result) {
       this.loadAllEmployee()
       alert(res.message)

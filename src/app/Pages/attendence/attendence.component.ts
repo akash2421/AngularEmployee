@@ -53,9 +53,9 @@ alert(res.message)
 
 
 onDelete(attendanceId:number){
-  debugger
+  //debugger
   this.empSer.deleteAttandenceById(attendanceId).subscribe((res: any) => {
-    debugger
+    //debugger
     if (res.result) {
       this.loadAllAttendance()
       alert(res.message)

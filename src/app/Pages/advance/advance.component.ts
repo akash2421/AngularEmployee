@@ -23,9 +23,9 @@ ngOnInit(): void {
 }
 getEmployee()
 {
-  debugger
+  //debugger
   this.advser.getAllEmployee().subscribe((res:any)=>{
-    debugger
+    //debugger
 this.employeeArray = res.data
   })
 }
@@ -53,11 +53,33 @@ alert(res.message)
 })
 }
 
+onEdit(advanceId:number){
+  //debugger
+  this.advser.getAdvanceById(advanceId).subscribe((res: any) => {
+    //debugger
+    this.advanceObj = res.data;
+    //debugger
+  })
+}
+onUpdate(){
+  //debugger
+  this.advser.updateAttandance(this.advanceObj).subscribe((res: any) => {
+    //debugger
+    if (res.result) {
+      this.loadAllAdvance()
+      alert(res.message)
+      // this.reset()
+    } else {
+      alert(res.message)
 
+    }
+
+  })
+}
 onDelete(advanceId:number){
-debugger
+//debugger
 this.advser.deleteAdvanceById(advanceId).subscribe((res: any) => {
-  debugger
+  //debugger
   if (res.result) {
     this.loadAllAdvance()
     alert(res.message)
@@ -69,14 +91,7 @@ this.advser.deleteAdvanceById(advanceId).subscribe((res: any) => {
 })
 }
 
-onEdit(advanceId:number){
-  debugger
-  this.advser.getAdvanceById(advanceId).subscribe((res: any) => {
-    debugger
-    this.advanceObj = res.data;
 
-  })
-}
 reset()
 {
 

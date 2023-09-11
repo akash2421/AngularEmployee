@@ -7,13 +7,11 @@
                     <div class="col-6 text-white">
                         Advance Portel
                     </div>
-                    <div class="col-6 text-right ">
-
-                    </div>
+                    
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <table class="table table-bordered w-100">
                     <thead>
                         <tr>
                             <th>sr no</th>
@@ -50,7 +48,7 @@
             </div>
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-4 ">
         <div class="card">
             <div class="card-header bg-primary">
                 <div class="row">
@@ -74,12 +72,12 @@
                         </div>
                         <div class="col-6">
                             <label for="">Advance Date</label>
-                            <input type="date" class="form-control" name="AdvanceDate"
+                            <input type="date" class="form-control" name="advanceDate"
                                 [(ngModel)]="advanceObj.advanceDate">
                         </div>
                         <div class="col-6">
                             <label for="">Advance Amount</label>
-                            <input type="Number" class="form-control" name="AdvanceAmount" [(ngModel)]="advanceObj.advanceAmount">
+                            <input type="Number" class="form-control" name="advanceAmount" [(ngModel)]="advanceObj.advanceAmount">
                         </div>
                         <div class="col-12">
                             <label for="">Reason</label>
@@ -93,8 +91,8 @@
                              <button class="btn btn-secondary " (click)="reset()">Reset</button> 
                         </div>
                          <div class="col-6">
-                            <button class="btn btn-primary" 
-                                (click)="onSave()">Add Advance</button>
+                            <button class="btn btn-primary" *ngIf="advanceObj.advanceId == 0" (click)="onSave()">Add Employee</button>
+                            <button class="btn btn-warning" *ngIf="advanceObj.advanceId !== 0" (click)="onUpdate()">Update Employee</button>
                                 
                         </div> 
                     </div>

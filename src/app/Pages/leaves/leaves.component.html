@@ -1,1 +1,112 @@
-<p>leaves works!</p>
+
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6 text-white">
+                        leave Portel
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered w-100">
+                    <thead>
+                        <tr>
+                            <th>sr no</th>
+                            <th>Name</th>
+
+                            <th>leaveDate</th>
+                            <th>leaveReason</th>
+                            <th>FullDayLeaves</th>
+                            <th>HalfDayLeaves</th>
+                            <th>Action</th>
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                         <tr *ngFor="let emp of leaveArray; let sr= index">
+                            <td>{{sr+1}}</td>
+                            <td>{{emp.empName}}</td>
+
+                            <td>{{emp.leaveDate | date : 'dd-mm-yyyy'}}</td>
+                            <td>{{emp.leaveReason }}</td>
+                            <td>{{emp.noOfFullDayLeaves}}</td>
+                            <td>{{emp.noOfHalfDayLeaves}}</td>
+
+
+
+                            <td>
+                                 <button class="btn btn-success mx-3" (click)="onEdit(emp.leaveId)">Edit </button>
+
+                                 <button class="btn btn-danger" (click)="onDelete(emp.leaveId)">Delete </button>
+                            </td> 
+
+                        </tr> 
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 ">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6  text-white">
+                        Add leave
+                    </div>
+                    <div class="col-6 text-right">
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Select Employee</label>
+                            <select name="employeeId" class="form-control" [(ngModel)]="leaveObj.employeeId">
+                                <option *ngFor="let adv of employeeArray" [value]="adv.empId">{{adv.empName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Leave Date</label>
+                            <input type="date" class="form-control" name="leaveDate"
+                                [(ngModel)]="leaveObj.leaveDate">
+                        </div>
+                        <div class="col-12">
+                            <label for="">Leave Reason</label>
+                            <textarea type="text" class="form-control" name="leaveReason" [(ngModel)]="leaveObj.leaveReason"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Leave  Fullday</label>
+                            <input type="Number" class="form-control" name="noOfFullDayLeaves" [(ngModel)]="leaveObj.noOfFullDayLeaves">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Leave HalfDay</label>
+                            <input type="Number" class="form-control" name="noOfHalfDayLeaves" [(ngModel)]="leaveObj.noOfHalfDayLeaves">
+                        </div>
+                        
+
+                        
+                    </div>
+                    <div class="row pt-3">
+                        <div class="col-6">
+                              <button class="btn btn-secondary " (click)="reset()">Reset</button> 
+                        </div>
+                         <div class="col-6">
+                            <button class="btn btn-primary"  *ngIf="leaveObj.leaveId == 0" (click)="onSave()">Add Leave</button>
+                            <button class="btn btn-warning" *ngIf="leaveObj.leaveId !== 0" (click)="onUpdate()">Update Employee</button> 
+                                
+                        </div> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
