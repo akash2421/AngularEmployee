@@ -36,7 +36,7 @@
 
 
                             <td>
-                                 <button class="btn btn-success mx-3" (click)="onEdit(emp.advanceId)">Edit </button>
+                                 <button class="btn btn-success mx-3" (click)="onEdit(emp.employeeId)">Edit </button>
 
                                  <button class="btn btn-danger" (click)="onDelete(emp.advanceId)">Delete </button>
                             </td> 
@@ -71,16 +71,16 @@
                             </select>
                         </div>
                         <div class="col-6">
-                            <label for="">Advance Date</label>
+                            <label >Advance Date</label>
                             <input type="date" class="form-control" name="advanceDate"
                                 [(ngModel)]="advanceObj.advanceDate">
                         </div>
                         <div class="col-6">
-                            <label for="">Advance Amount</label>
-                            <input type="Number" class="form-control" name="advanceAmount" [(ngModel)]="advanceObj.advanceAmount">
+                            <label>Advance Amount</label>
+                            <input type="text" class="form-control" name="advanceAmount" [(ngModel)]="advanceObj.advanceAmount">
                         </div>
                         <div class="col-12">
-                            <label for="">Reason</label>
+                            <label >Reason</label>
                             <textarea type="text" class="form-control" name="reason" [(ngModel)]="advanceObj.reason"></textarea>
                         </div>
 
@@ -92,7 +92,7 @@
                         </div>
                          <div class="col-6">
                             <button class="btn btn-primary" *ngIf="advanceObj.advanceId == 0" (click)="onSave()">Add Employee</button>
-                            <button class="btn btn-warning" *ngIf="advanceObj.advanceId !== 0" (click)="onUpdate()">Update Employee</button>
+                                <button class="btn btn-warning" *ngIf="advanceObj.advanceId !== 0" (click)="onUpdate()">Update Employee</button>
                                 
                         </div> 
                     </div>

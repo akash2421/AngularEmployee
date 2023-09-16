@@ -53,17 +53,17 @@ alert(res.message)
 })
 }
 
-onEdit(advanceId:number){
-  //debugger
-  this.advser.getAdvanceById(advanceId).subscribe((res: any) => {
-    //debugger
+onEdit(id:number){
+  // debugger
+  this.advser.getAdvanceById(id).subscribe((res: any) => {
+    // debugger
     this.advanceObj = res.data;
-    //debugger
+    // debugger
   })
 }
 onUpdate(){
   //debugger
-  this.advser.updateAttandance(this.advanceObj).subscribe((res: any) => {
+  this.advser.updateAdvance(this.advanceObj).subscribe((res: any) => {
     //debugger
     if (res.result) {
       this.loadAllAdvance()
